@@ -14,6 +14,7 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { Button } from "@mui/material";
 import UserPool from "./UserPool";
 import { useNavigate } from "react-router-dom";
+import logo from "../src/Utils";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -55,47 +56,71 @@ const SignUp = () => {
 
   return (
     <>
-      <div style={{ paddingTop: "5ch", fontSize: 40, textAlign: "center" }}>
-        Sign Up
-      </div>
-      <br />
-      <FormControl sx={{ m: 1, width: "25ch" }} variant="outlined">
-        <TextField
-          id="email"
-          label="Email Id"
-          placeholder="abc@gmail.com"
+      <div
+        style={{
+          backgroundColor: "black",
+          height: 800,
+        }}
+      >
+        <img src={logo} height={"30%"} width={"30%"} />
+        <div
+          style={{
+            paddingTop: "2ch",
+            fontSize: 40,
+            textAlign: "center",
+            color: "orange",
+          }}
+        >
+          Sign Up
+        </div>
+        <br />
+        <FormControl sx={{ m: 1, width: "25ch" }} variant="outlined">
+          <TextField
+            style={{
+              color: "fff",
+              background: "white",
+            }}
+            id="email"
+            placeholder="Email Id"
+            variant="outlined"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </FormControl>
+        <br />
+        <FormControl
+          sx={{ m: 1, width: "25ch" }}
+          style={{
+            color: "fff",
+            background: "white",
+          }}
           variant="outlined"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </FormControl>
-      <br />
-      <FormControl sx={{ m: 1, width: "25ch" }} variant="outlined">
-        <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
-        <OutlinedInput
-          id="outlined-adornment-password"
-          type={values.showPassword ? "text" : "password"}
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          endAdornment={
-            <InputAdornment position="end">
-              <IconButton
-                aria-label="toggle password visibility"
-                onClick={handleClickShowPassword}
-                onMouseDown={handleMouseDownPassword}
-                edge="end"
-              >
-                {values.showPassword ? <VisibilityOff /> : <Visibility />}
-              </IconButton>
-            </InputAdornment>
-          }
-          label="Password"
-        />
-      </FormControl>
-      <br /> <br />
-      <Button variant="contained" onClick={(e) => submitData(e)}>
-        SIGN UP
-      </Button>
+        >
+          <OutlinedInput
+            id="outlined-adornment-password"
+            type={values.showPassword ? "text" : "password"}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleClickShowPassword}
+                  onMouseDown={handleMouseDownPassword}
+                  edge="end"
+                >
+                  {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              </InputAdornment>
+            }
+            placeholder="Password"
+          />
+        </FormControl>
+        <br /> <br />
+        <Button variant="contained" onClick={(e) => submitData(e)}>
+          SIGN UP
+        </Button>
+      </div>
     </>
   );
 };

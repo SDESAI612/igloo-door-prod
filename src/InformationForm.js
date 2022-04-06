@@ -11,18 +11,36 @@ const InformationForm = () => {
   const [city, setCity] = useState("");
   const [school, setSchool] = useState("");
 
+  const [nativeplace, setNativeplace] = useState("");
+  const [currentcity, setCurrentcity] = useState("");
+  const [company, setCompany] = useState("");
+  const [university, setUniversity] = useState("");
+  const [fathername, setFathername] = useState("");
+  const [mothername, setMothername] = useState("");
+  const [spouse, setSpouse] = useState("");
+  const [petname, setPetname] = useState("");
+  const [nickname, setNickname] = useState("");
+
   const navigate = useNavigate();
 
   const { userName, setUserName } = useContext(UserContext);
 
   const submitData = (e) => {
-    alert(userName);
     axios
       .post("https://nr5ieu7dcc.execute-api.us-east-1.amazonaws.com/abcd/abc", {
         firstname: firstName,
         lastname: lastName,
         city: city,
         school: school,
+        nativeplace: nativeplace,
+        currentcity: currentcity,
+        company: company,
+        university: university,
+        fathername: fathername,
+        mothername: mothername,
+        spouse: spouse,
+        petname: petname,
+        nickname: nickname,
         "http-method": "POST",
         "resource-path": "/unsafepasswords",
       })
@@ -40,10 +58,10 @@ const InformationForm = () => {
       <div
         style={{
           backgroundColor: "black",
-          height: 840,
+          height: 1500,
         }}
       >
-        <img src={logo} height={"30%"} width={"30%"} />
+        <img src={logo} height={"20%"} width={"20%"} />
         <br />
         <br />
         <div style={{ color: "white", fontSize: 25 }}>
@@ -99,10 +117,136 @@ const InformationForm = () => {
               background: "white",
             }}
             id="city"
-            placeholder="City"
+            placeholder="Born City"
             variant="outlined"
             value={city}
             onChange={(e) => setCity(e.target.value)}
+          />
+        </FormControl>
+        <br />
+        <FormControl sx={{ m: 1, width: "25ch" }} variant="outlined">
+          <TextField
+            style={{
+              color: "fff",
+              background: "white",
+            }}
+            id="nativeplace"
+            placeholder="Native Place"
+            variant="outlined"
+            value={nativeplace}
+            onChange={(e) => setNativeplace(e.target.value)}
+          />
+        </FormControl>
+        <br />
+        <FormControl sx={{ m: 1, width: "25ch" }} variant="outlined">
+          <TextField
+            style={{
+              color: "fff",
+              background: "white",
+            }}
+            id="currentcity"
+            placeholder="Current City"
+            variant="outlined"
+            value={currentcity}
+            onChange={(e) => setCurrentcity(e.target.value)}
+          />
+        </FormControl>
+        <br />
+        <FormControl sx={{ m: 1, width: "25ch" }} variant="outlined">
+          <TextField
+            style={{
+              color: "fff",
+              background: "white",
+            }}
+            id="company"
+            placeholder="Company"
+            variant="outlined"
+            value={company}
+            onChange={(e) => setCompany(e.target.value)}
+          />
+        </FormControl>
+        <br />
+        <FormControl sx={{ m: 1, width: "25ch" }} variant="outlined">
+          <TextField
+            style={{
+              color: "fff",
+              background: "white",
+            }}
+            id="university"
+            placeholder="University"
+            variant="outlined"
+            value={university}
+            onChange={(e) => setUniversity(e.target.value)}
+          />
+        </FormControl>
+        <br />
+        <FormControl sx={{ m: 1, width: "25ch" }} variant="outlined">
+          <TextField
+            style={{
+              color: "fff",
+              background: "white",
+            }}
+            id="fathername"
+            placeholder="Father Name"
+            variant="outlined"
+            value={fathername}
+            onChange={(e) => setFathername(e.target.value)}
+          />
+        </FormControl>
+        <br />
+        <FormControl sx={{ m: 1, width: "25ch" }} variant="outlined">
+          <TextField
+            style={{
+              color: "fff",
+              background: "white",
+            }}
+            id="mothername"
+            placeholder="Mother Name"
+            variant="outlined"
+            value={mothername}
+            onChange={(e) => setMothername(e.target.value)}
+          />
+        </FormControl>
+        <br />
+        <FormControl sx={{ m: 1, width: "25ch" }} variant="outlined">
+          <TextField
+            style={{
+              color: "fff",
+              background: "white",
+            }}
+            id="spouse"
+            placeholder="Spouse"
+            variant="outlined"
+            value={spouse}
+            onChange={(e) => setSpouse(e.target.value)}
+          />
+        </FormControl>
+        <br />
+        <FormControl sx={{ m: 1, width: "25ch" }} variant="outlined">
+          <TextField
+            style={{
+              color: "fff",
+              background: "white",
+            }}
+            id="petname"
+            placeholder="Pet Name"
+            variant="outlined"
+            value={petname}
+            onChange={(e) => setPetname(e.target.value)}
+          />
+        </FormControl>
+        <br />
+        <FormControl sx={{ m: 1, width: "25ch" }} variant="outlined">
+          <TextField
+            style={{
+              color: "fff",
+              background: "white",
+            }}
+            id="nickname"
+            placeholder="Nickname"
+            variant="outlined"
+            value={nickname}
+            onChange={(e) => setNickname(e.target.value)}
           />
         </FormControl>
         <br /> <br />
