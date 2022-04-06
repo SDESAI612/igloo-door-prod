@@ -10,21 +10,39 @@ const PotentialPassword = () => {
 
   const navigate = useNavigate();
 
+  const headers = {
+    headers: {
+      "X-Amz-Content-Sha256":
+        "beaead3198f7da1e70d03ab969765e0821b24fc913697e929e726aeaebf0eba3",
+      "X-Amz-Date": "20220406T194640Z",
+      Authorization:
+        "AWS4-HMAC-SHA256 Credential=/20220406/us-east-1/execute-api/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=6683f57fb3499a393ea7296bb170c7524044bb9b7ce5d2a7d85832dcbb4a8e98",
+      "Content-Type": "application/json",
+    },
+  };
+
   const submitData = (e) => {
     e.preventDefault();
-    axios
-      .post("https://nr5ieu7dcc.execute-api.us-east-1.amazonaws.com/abcd/abc", {
-        potentialpassword: potentialPassText,
-        "http-method": "POST",
-        "resource-path": "/checkpotentialpassword",
-      })
-      .then((data) => {
-        console.log(data.data);
-        setMessage(data.data.body.message);
-      })
-      .catch((err) => {
-        alert(err);
-      });
+    setMessage(
+      "You can use secure password generator or Try another password."
+    );
+    // axios
+    //   .post(
+    //     "https://6iwa9s96ik.execute-api.us-east-1.amazonaws.com/production/unsafeandcheck",
+    //     {
+    //       potentialpassword: potentialPassText,
+    //       "http-method": "POST",
+    //       "resource-path": "/checkpotentialpassword",
+    //     },
+    //     { headers: headers }
+    //   )
+    //   .then((data) => {
+    //     console.log(data);
+    //     setMessage(data.data.body.message);
+    //   })
+    //   .catch((err) => {
+    //     alert(err);
+    //   });
   };
 
   const generateSecuredPasswords = (e) => {

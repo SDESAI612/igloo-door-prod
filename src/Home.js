@@ -9,6 +9,7 @@ const Home = () => {
   const location = useLocation();
 
   useEffect(() => {
+    console.log(location.state.passwords);
     setPass(location.state.passwords);
   }, []);
 

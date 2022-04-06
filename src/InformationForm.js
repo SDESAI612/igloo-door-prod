@@ -26,27 +26,46 @@ const InformationForm = () => {
   const { userName, setUserName } = useContext(UserContext);
 
   const submitData = (e) => {
+    e.preventDefault();
+    const headers = {
+      headers: {
+        // "X-Amz-Content-Sha256":
+        //   "beaead3198f7da1e70d03ab969765e0821b24fc913697e929e726aeaebf0eba3",
+        // "X-Amz-Date": "20220406T194640Z",
+        // Authorization:
+        //   "AWS4-HMAC-SHA256 Credential=/20220406/us-east-1/execute-api/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=6683f57fb3499a393ea7296bb170c7524044bb9b7ce5d2a7d85832dcbb4a8e98",
+        "Content-Type": "application/json",
+      },
+    };
     axios
-      .post("https://nr5ieu7dcc.execute-api.us-east-1.amazonaws.com/abcd/abc", {
-        firstname: firstName,
-        lastname: lastName,
-        city: city,
-        school: school,
-        nativeplace: nativeplace,
-        currentcity: currentcity,
-        company: company,
-        university: university,
-        fathername: fathername,
-        mothername: mothername,
-        spouse: spouse,
-        petname: petname,
-        nickname: nickname,
-        "http-method": "POST",
-        "resource-path": "/unsafepasswords",
-      })
+      .post(
+        "https://6iwa9s96ik.execute-api.us-east-1.amazonaws.com/production/unsafeandcheck",
+        {
+          firstname: firstName,
+          lastname: lastName,
+          city: city,
+          school: school,
+          nativeplace: nativeplace,
+          currentcity: currentcity,
+          company: company,
+          university: university,
+          fathername: fathername,
+          mothername: mothername,
+          spouse: spouse,
+          petname: petname,
+          nickname: nickname,
+          "http-method": "POST",
+          "resource-path": "/unsafepasswords",
+        }
+        // { headers: headers }
+      )
       .then((data) => {
         console.log(data.data.body);
-        navigate("/Home", { state: { passwords: data.data.body } });
+        if (data.data.body) {
+          navigate("/Home", { state: { passwords: data.data.body } });
+        } else {
+          navigate("/Home", { state: { passwords: [] } });
+        }
       })
       .catch((err) => {
         alert(err);
