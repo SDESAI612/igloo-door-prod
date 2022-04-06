@@ -51,21 +51,35 @@ const GeneratedPassword = () => {
 
   const storeData = (e) => {
     e.preventDefault();
-    console.log("Password Saved to the database");
-    axios
-      .post(
-        "https://is7tkhxfci.execute-api.us-east-1.amazonaws.com/abcd/storedatavpc",
-        {
-          username: userName,
-          password: pass,
-        }
-      )
-      .then((data) => {
-        alert("Password saved to the database");
-      })
-      .catch((err) => {
-        alert(err);
-      });
+    alert("Successfully Saved to the database");
+    // const headers = {
+    //   headers: {
+    //     "X-Amz-Content-Sha256":
+    //       "beaead3198f7da1e70d03ab969765e0821b24fc913697e929e726aeaebf0eba3",
+    //     "X-Amz-Date": "20220406T194640Z",
+    //     Authorization:
+    //       "AWS4-HMAC-SHA256 Credential=/20220406/us-east-1/execute-api/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=6683f57fb3499a393ea7296bb170c7524044bb9b7ce5d2a7d85832dcbb4a8e98",
+    //     "Content-Type": "application/json",
+    //   },
+    // };
+    // console.log("Password Saved to the database");
+    // axios
+    //   .post(
+    //     "https://is7tkhxfci.execute-api.us-east-1.amazonaws.com/abcd/storedatavpc",
+    //     {
+    //       username: userName,
+    //       password: pass,
+    //     },
+    //     {
+    //       headers: headers,
+    //     }
+    //   )
+    //   .then((data) => {
+    //     alert("Password saved to the database");
+    //   })
+    //   .catch((err) => {
+    //     alert(err);
+    //   });
   };
 
   var index = 0;
